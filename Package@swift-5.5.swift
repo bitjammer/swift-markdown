@@ -54,11 +54,11 @@ if ProcessInfo.processInfo.environment["SWIFTCI_USE_LOCAL_DEPS"] == nil {
         .package(url: "https://github.com/apple/swift-cmark.git", .branch("gfm")),
         .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMinor(from: "1.0.1")),
     ]
-    
+
     // SwiftPM command plugins are only supported by Swift version 5.6 and later.
     #if swift(>=5.6)
     package.dependencies += [
-        .package(url: "https://github.com/bitjammer/swift-docc-plugin", .branch("acgarland/snippets")),
+        .package(url: "https://github.com/apple/swift-docc-plugin", .branch("main")),
     ]
     #endif
 } else {
