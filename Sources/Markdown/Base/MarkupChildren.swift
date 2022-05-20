@@ -23,6 +23,7 @@ public struct MarkupChildren: Sequence {
             self.childMetadata = parent.raw.metadata.firstChild()
         }
 
+        @inline(__always)
         public mutating func next() -> Markup? {
             let index = childMetadata.indexInParent
             guard index < parent.childCount else {
@@ -48,6 +49,7 @@ public struct MarkupChildren: Sequence {
 
     // MARK: Sequence
 
+    @inline(__always)
     public func makeIterator() -> Iterator {
         return Iterator(parent)
     }

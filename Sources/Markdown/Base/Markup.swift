@@ -9,6 +9,7 @@
 */
 
 /// Creates an element of a type that corresponds to the kind of markup data and casts back up to `Markup`.
+@inline(__always)
 func makeMarkup(_ data: _MarkupData) -> Markup {
     switch data.raw.markup.data {
     case .blockQuote:
@@ -184,6 +185,7 @@ extension Markup {
     /// Returns the child at the given position if it is within the bounds of `children.indices`.
     ///
     /// - Complexity: `O(childCount)`
+    @inline(__always)
     public func child(at position: Int) -> Markup? {
         precondition(position >= 0, "Cannot retrieve a child at negative index: \(position)")
         guard position <= raw.markup.childCount else {
